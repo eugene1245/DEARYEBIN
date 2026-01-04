@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>YEBIN : PHOTO ARCHIVE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0; background-color: #ffffff;
+            display: flex; flex-direction: column; align-items: center;
+            min-height: 100vh; font-family: 'Rock Salt', cursive;
+            overflow-x: hidden; padding-bottom: 100px;
+        }
+
+        .header {
+            margin: 80px 0; font-size: 2rem; color: #000;
+            text-align: center;
+        }
+
+        /* 사진들이 나타날 컨테이너 */
+        .photo-gallery {
+            position: relative; width: 90vw; max-width: 1000px;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+        }
+
+        .photo-item {
+            width: 280px; background: #fff; padding: 15px;
+            border: 1px solid #eee; box-shadow: 10px 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            cursor: pointer; opacity: 0; transform: translateY(20px); /* 처음에 숨김 */
+        }
+
+        .photo-item img { width: 100%; height: auto; display: block; }
+
+        /* 사진이 나타나는 애니메이션 클래스 */
+        .photo-item.show {
+            opacity: 1; transform: translateY(0) rotate(var(--r));
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 10;
+        }
+
+        .back-btn {
+            margin-top: 100px; color: #ccc; text-decoration: none;
+            font-size: 0.8rem; border-bottom: 1px solid #ccc;
+            transition: 0.3s;
+        }
+        .back-btn:hover { color: #000; border-color: #000; }
+
+        #reveal-msg { margin-top: 20px; font-size: 0.9rem; color: #aaa; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="header">PHOTO ARCHIVE</div>
+
+    <div id="reveal-msg" onclick="showPhotos()">CLICK TO REVEAL PIECES</div>
+
+    <div class="photo-gallery" id="gallery">
+        <div class="photo-item" style="--r: -3deg;"><img src="p1.jpg"></div>
+        <div class="photo-item" style="--r: 2deg;"><img src="p2.jpg"></div>
+        <div class="photo-item" style="--r: -5deg;"><img src="p3.jpg"></div>
+        <div class="photo-item" style="--r: 4deg;"><img src="p4.jpg"></div>
+        <div class="photo-item" style="--r: -2deg;"><img src="p5.jpg"></div>
+        <div class="photo-item" style="--r: 3deg;"><img src="p6.jpg"></div>
+    </div>
+
+    <a href="celebrate.html" class="back-btn">RETURN TO LIST</a>
+
+    <script>
+        function showPhotos() {
+            const items = document.querySelectorAll('.photo-item');
+            const msg = document.getElementById('reveal-msg');
+            msg.style.display = 'none'; // 메시지 숨기기
+            
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('show');
+                }, index * 200); // 0.2초 간격으로 하나씩 툭툭!
+            });
+        }
+    </script>
+</body>
+</html>
