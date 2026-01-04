@@ -12,59 +12,54 @@
             overflow-x: hidden; padding-bottom: 100px;
         }
 
-        .header {
-            margin: 80px 0; font-size: 2rem; color: #000;
-            text-align: center;
-        }
+        .header { margin: 80px 0 20px 0; font-size: 2.5rem; color: #000; text-align: center; }
+        #reveal-msg { margin-bottom: 50px; font-size: 1rem; color: #888; cursor: pointer; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
 
-        /* 사진들이 나타날 컨테이너 */
         .photo-gallery {
-            position: relative; width: 90vw; max-width: 1000px;
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+            position: relative; width: 95vw; max-width: 1200px;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 25px;
         }
 
         .photo-item {
-            width: 280px; background: #fff; padding: 15px;
+            width: 250px; background: #fff; padding: 12px;
             border: 1px solid #eee; box-shadow: 10px 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            cursor: pointer; opacity: 0; transform: translateY(20px); /* 처음에 숨김 */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer; opacity: 0; transform: translateY(30px) scale(0.9);
         }
 
-        .photo-item img { width: 100%; height: auto; display: block; }
+        .photo-item img { width: 100%; height: auto; display: block; border-radius: 2px; }
 
-        /* 사진이 나타나는 애니메이션 클래스 */
-        .photo-item.show {
-            opacity: 1; transform: translateY(0) rotate(var(--r));
-        }
+        .photo-item.show { opacity: 1; transform: translateY(0) rotate(var(--r)) scale(1); }
 
-        .photo-item:hover {
-            transform: scale(1.05) rotate(0deg) !important;
-            z-index: 10;
-        }
+        .photo-item:hover { transform: scale(1.1) rotate(0deg) !important; z-index: 50; box-shadow: 20px 20px 50px rgba(0,0,0,0.15); }
 
         .back-btn {
-            margin-top: 100px; color: #ccc; text-decoration: none;
-            font-size: 0.8rem; border-bottom: 1px solid #ccc;
-            transition: 0.3s;
+            margin-top: 80px; color: #bbb; text-decoration: none;
+            font-size: 0.9rem; border-bottom: 1px solid #eee; transition: 0.3s;
         }
         .back-btn:hover { color: #000; border-color: #000; }
-
-        #reveal-msg { margin-top: 20px; font-size: 0.9rem; color: #aaa; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <div class="header">PHOTO ARCHIVE</div>
-
-    <div id="reveal-msg" onclick="showPhotos()">CLICK TO REVEAL PIECES</div>
+    <div id="reveal-msg" onclick="showPhotos()">CLICK TO REVEAL 14 PIECES</div>
 
     <div class="photo-gallery" id="gallery">
-        <div class="photo-item" style="--r: -3deg;"><img src="p1.jpg"></div>
-        <div class="photo-item" style="--r: 2deg;"><img src="p2.jpg"></div>
-        <div class="photo-item" style="--r: -5deg;"><img src="p3.jpg"></div>
-        <div class="photo-item" style="--r: 4deg;"><img src="p4.jpg"></div>
-        <div class="photo-item" style="--r: -2deg;"><img src="p5.jpg"></div>
-        <div class="photo-item" style="--r: 3deg;"><img src="p6.jpg"></div>
+        <div class="photo-item" style="--r: -2deg;"><img src="KakaoTalk_20260104_203605932.jpg"></div>
+        <div class="photo-item" style="--r: 3deg;"><img src="KakaoTalk_20260104_203605932_01.jpg"></div>
+        <div class="photo-item" style="--r: -4deg;"><img src="KakaoTalk_20260104_203605932_02.jpg"></div>
+        <div class="photo-item" style="--r: 5deg;"><img src="KakaoTalk_20260104_203605932_03.jpg"></div>
+        <div class="photo-item" style="--r: -3deg;"><img src="KakaoTalk_20260104_203605932_04.jpg"></div>
+        <div class="photo-item" style="--r: 2deg;"><img src="KakaoTalk_20260104_203605932_05.jpg"></div>
+        <div class="photo-item" style="--r: -5deg;"><img src="KakaoTalk_20260104_203605932_06.jpg"></div>
+        <div class="photo-item" style="--r: 4deg;"><img src="KakaoTalk_20260104_203605932_07.jpg"></div>
+        <div class="photo-item" style="--r: -2deg;"><img src="KakaoTalk_20260104_203605932_08.jpg"></div>
+        <div class="photo-item" style="--r: 3deg;"><img src="KakaoTalk_20260104_203605932_09.jpg"></div>
+        <div class="photo-item" style="--r: -4deg;"><img src="KakaoTalk_20260104_203605932_10.jpg"></div>
+        <div class="photo-item" style="--r: 5deg;"><img src="KakaoTalk_20260104_203605932_11.jpg"></div>
+        <div class="photo-item" style="--r: -3deg;"><img src="KakaoTalk_20260104_203605932_12.jpg"></div>
+        <div class="photo-item" style="--r: 2deg;"><img src="KakaoTalk_20260104_203605932_13.jpg"></div>
     </div>
 
     <a href="celebrate.html" class="back-btn">RETURN TO LIST</a>
@@ -73,12 +68,13 @@
         function showPhotos() {
             const items = document.querySelectorAll('.photo-item');
             const msg = document.getElementById('reveal-msg');
-            msg.style.display = 'none'; // 메시지 숨기기
+            msg.style.opacity = '0';
+            setTimeout(() => msg.style.display = 'none', 500);
             
             items.forEach((item, index) => {
                 setTimeout(() => {
                     item.classList.add('show');
-                }, index * 200); // 0.2초 간격으로 하나씩 툭툭!
+                }, index * 150); // 14장이라 속도를 조금 더 빠르게(0.15초) 조정!
             });
         }
     </script>
