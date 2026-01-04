@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>YEBIN : NOTE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0; background-color: #ffffff;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            height: 100vh;
+        }
+
+        .note-paper {
+            width: clamp(300px, 60vw, 500px);
+            min-height: 400px;
+            background: #ffffff;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            transform: rotate(-1deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .note-content {
+            font-family: 'Single Day', cursive;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #333;
+            word-break: keep-all;
+            text-align: center;
+        }
+
+        .back-btn {
+            margin-top: 60px;
+            font-family: 'Rock Salt', cursive;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+        .back-btn:hover { color: #000; }
+    </style>
+</head>
+<body>
+
+    <div class="note-paper">
+        <div class="note-content">
+            와 코딩? 웹 페이지... 뭐더라?<br>
+            암튼 이거 되게 어렵네...<br><br>
+            예빈아 생일 축하해!<br>
+            너무 힘들어서 긴 말은 안 한다.<br>
+            바빠도 즐거운 하루를 보냈길 ㅎㅎ
+        </div>
+    </div>
+
+    <a href="celebrate.html" class="back-btn">RETURN TO LIST</a>
+
+</body>
+</html>
