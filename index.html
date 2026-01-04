@@ -3,82 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROJECT YESUNG: 0104</title>
+    <title>PROJECT: YEBIN 0104</title>
     
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <style>
         body, html {
             margin: 0; padding: 0; height: 100%; width: 100%;
-            font-family: 'Pretendard', sans-serif;
-            background-color: #ffffff; /* 순백색 배경 */
-            display: flex; justify-content: center; align-items: center;
+            background-color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
             overflow: hidden;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: flex-start;
+            padding-left: 8vw; /* 왼쪽 여백 살짝 줄임 */
         }
 
-        .main-container { text-align: center; }
-
-        .title-area { margin-bottom: 60px; }
-
-        h1 {
-            font-size: clamp(3rem, 10vw, 6rem); /* 더 크고 웅장하게 */
-            color: #000000; /* 완전 블랙 */
-            font-weight: 800;
-            letter-spacing: -2px;
-            margin: 0;
-            line-height: 1.1;
-        }
-
-        p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-top: 20px;
+        /* 1. 테두리에 흐르는 글자 (전부 YEBIN으로!) */
+        .marquee-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: #000; color: #fff;
+            font-size: 8pt; padding: 6px 0;
+            white-space: nowrap; overflow: hidden;
+            z-index: 100;
+            text-transform: uppercase;
             letter-spacing: 2px;
-            text-transform: uppercase; /* 영문일 경우 대문자로 시크하게 */
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 15s linear infinite; /* 속도 살짝 올림 */
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); } /* 무한루프를 위해 50%로 설정 */
         }
 
+        /* 2. 메인 타이포그래피 (화면 압도하는 크기!) */
+        .hero-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(6rem, 18vw, 14rem); /* 더 키웠어! */
+            line-height: 0.8;
+            letter-spacing: -8px; /* 자간 더 좁게 힙하게! */
+            color: #000;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .sub-text {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #333;
+            letter-spacing: 8px; /* 자간 넓혀서 대비 효과 */
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+
+        /* 3. 시크한 버튼 (흰색 배경 + 검은 테두리 박스) */
         .enter-btn {
-            background-color: #000000; /* 블랙 버튼 */
-            color: #ffffff;
-            border: none;
-            padding: 18px 50px;
+            margin-top: 60px;
+            background-color: transparent;
+            color: #000;
+            border: 1.5px solid #000; /* 테두리 두께 조절 */
+            padding: 15px 50px;
             font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            border-radius: 0; /* 각진 버튼으로 더 시크하게 */
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.4s ease;
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .enter-btn:hover {
-            background-color: #FBDEE2; /* 호버할 때만 유진의 포인트 컬러 핑크! */
-            color: #000;
-            transform: translateY(-5px);
+            background-color: #000;
+            color: #fff;
+            padding: 15px 65px; /* 호버 시 길어지는 효과 */
         }
+
+        .marquee-bottom { top: auto; bottom: 0; }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <div class="title-area">
-            <h1>HAPPY<br>YESUNG DAY</h1>
-            <p>EYES ON ME, YE-BIN</p>
+    <div class="marquee-container">
+        <div class="marquee-content">
+            HAPPY YEBIN DAY 0104 / EYES ON YEBIN / HAPPY YEBIN DAY 0104 / EYES ON YEBIN / HAPPY YEBIN DAY 0104 / EYES ON YEBIN / HAPPY YEBIN DAY 0104 / EYES ON YEBIN / 
         </div>
+    </div>
+
+    <div class="main-container">
+        <div class="hero-text">
+            DEAR<br>YEBIN
+        </div>
+        <p class="sub-text">B-DAY ARCHIVE : 2026</p>
         
         <button class="enter-btn" onclick="celebrate()">
-            ENTER THE PARTY
+            ENTER PROJECT
         </button>
+    </div>
+
+    <div class="marquee-container marquee-bottom">
+        <div class="marquee-content">
+            0104 BIRTHDAY / ONLY FOR YEBIN / 0104 BIRTHDAY / ONLY FOR YEBIN / 0104 BIRTHDAY / ONLY FOR YEBIN / 0104 BIRTHDAY / ONLY FOR YEBIN / 
+        </div>
     </div>
 
     <script>
         function celebrate() {
-            // 화이트 배경이라 폭죽 색깔이 더 선명하게 보일 거야!
+            // 시크한 무채색 폭죽!
             confetti({
-                particleCount: 150,
-                spread: 100,
+                particleCount: 200,
+                spread: 120,
                 origin: { y: 0.5 },
-                colors: ['#FCF0D6', '#D9F1F3', '#FBDEE2', '#000000']
+                colors: ['#000000', '#ffffff', '#aaaaaa']
             });
 
             setTimeout(() => {
