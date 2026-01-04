@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTEM_CRITICAL_ERROR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0; background-color: #000; color: #0f0; /* 매트릭스 초록색 */
+            font-family: 'Courier New', Courier, monospace;
+            height: 100vh; overflow: hidden; position: relative;
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        /* 배경에 깔리는 알 수 없는 코드들 */
+        .bg-code {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            font-size: 10px; opacity: 0.3; line-height: 1.2;
+            pointer-events: none; white-space: pre-wrap;
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        /* 슝- 하고 커지는 빨간 경고 문구 */
+        .warning-text {
+            font-family: 'Rock Salt', cursive;
+            color: #ff0000; /* 강렬한 레드 */
+            font-size: clamp(2rem, 10vw, 6rem);
+            text-align: center;
+            z-index: 10;
+            animation: zoomIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            text-shadow: 0 0 20px #ff0000;
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* 뒤로가기 버튼도 왠지 눌러야 할 것 같은 커맨드 라인 느낌 */
+        .back-link {
+            position: absolute; bottom: 30px;
+            color: #fff; text-decoration: none; font-size: 0.8rem;
+            border: 1px solid #fff; padding: 5px 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .back-link:hover { background: #ff0000; border-color: #ff0000; }
+    </style>
+</head>
+<body>
+
+    <div class="bg-code">
+        sudo rm -rf /System/Library/CoreServices/SpringBoard.app
+        Kernel Panic: cpu 0 caller 0xffffff800021f6a1: "Double fault"
+        segmentation fault (core dumped)
+        0x00007fff5fc3d000 0x00007fff5fc7c000
+        while(true) { fork(); } // recursion depth exceeded
+        fatal error: unexpected fault address 0x0
+        [CRITICAL] YEBIN_ACCESS_DENIED_0104
+        010101010101010101010101010101010101010
+        ERROR: MEMORY_LEAK_DETECTED
+        SYSTEM_SHUTDOWN_IN_3_2_1...
+        (이 코드는 무한 반복됩니다...)
+        sudo rm -rf /System/Library/CoreServices/SpringBoard.app
+        Kernel Panic: cpu 0 caller 0xffffff800021f6a1: "Double fault"
+        segmentation fault (core dumped)
+        0x00007fff5fc3d000 0x00007fff5fc7c000
+        while(true) { fork(); } // recursion depth exceeded
+    </div>
+
+    <div class="warning-text">
+        WHY DID YOU<br>CLICK? ;;
+    </div>
+
+    <a href="celebrate.html" class="back-link">> RETURN_TO_SYSTEM</a>
+
+</body>
+</html>
