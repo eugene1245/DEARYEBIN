@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YEBIN : PIECES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Montserrat:wght@300;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0; background-color: #000; color: #222; /* 어두운 배경에 흐릿한 글씨 */
+            font-family: 'Montserrat', sans-serif;
+            display: flex; flex-wrap: wrap; align-content: space-around;
+            height: 100vh; overflow: hidden; position: relative;
+        }
+
+        .piece-text {
+            position: absolute; opacity: 0.3; transition: opacity 0.4s ease-in-out, color 0.4s ease-in-out;
+            cursor: default; word-break: keep-all; text-align: center;
+        }
+        .piece-text:hover { opacity: 1; color: #fff; } /* 호버 시 선명해지고 흰색으로 */
+
+        /* 폰트 및 스타일 */
+        .piece-text.rock { font-family: 'Rock Salt', cursive; font-size: clamp(1.2rem, 3vw, 2.5rem); line-height: 1.4; }
+        .piece-text.mont { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: clamp(0.9rem, 2vw, 1.5rem); letter-spacing: 2px; }
+
+        /* 각각의 텍스트 위치 (유진이 직접 수정 가능!) */
+        .piece-1 { top: 15%; left: 10%; transform: rotate(-5deg); }
+        .piece-2 { top: 30%; left: 40%; transform: rotate(8deg); }
+        .piece-3 { top: 50%; left: 15%; transform: rotate(2deg); }
+        .piece-4 { top: 20%; right: 10%; transform: rotate(10deg); }
+        .piece-5 { top: 60%; right: 20%; transform: rotate(-12deg); }
+        .piece-6 { bottom: 10%; left: 30%; transform: rotate(5deg); }
+        .piece-7 { bottom: 20%; right: 40%; transform: rotate(-7deg); }
+        .piece-8 { top: 40%; left: 65%; transform: rotate(3deg); }
+
+        .back-btn {
+            position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%);
+            color: #aaa; text-decoration: none; font-family: 'Montserrat', sans-serif;
+            border: 1px solid #444; padding: 10px 25px; font-size: 0.8rem;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background: #fff; color: #000; border-color: #fff; }
+    </style>
+</head>
+<body>
+
+    <div class="piece-text rock piece-1">
+        네가 웃을 때<br>
+        코 찡긋하는 거
+    </div>
+    <div class="piece-text mont piece-2">
+        좋아하는 노래 나오면<br>
+        리듬 타는 어깨
+    </div>
+    <div class="piece-text rock piece-3">
+        샤샤 볼 때마다<br>
+        나오는 세상 무해한 표정
+    </div>
+    <div class="piece-text mont piece-4">
+        힘들 때 혼자 삭히다<br>
+        나중에 털어놓는 솔직함
+    </div>
+    <div class="piece-text rock piece-5">
+        떡볶이 앞에서<br>
+        무장해제되는 너의 눈빛
+    </div>
+    <div class="piece-text mont piece-6">
+        내 말에 귀 기울여주는<br>
+        네 고요한 눈빛
+    </div>
+    <div class="piece-text rock piece-7">
+        진짜 화났을 때<br>
+        오히려 침착해지는 거
+    </div>
+    <div class="piece-text mont piece-8">
+        밤늦게 통화할 때<br>
+        슬며시 잠드는 목소리
+    </div>
+
+    <a href="celebrate.html" class="back-btn">RETURN TO LIST</a>
+
+</body>
+</html>
