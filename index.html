@@ -4,116 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROJECT: YEBIN</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Sedgwick+Ave+Display&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         body, html {
             margin: 0; padding: 0; height: 100%; width: 100%;
-            background-color: #fff; font-family: 'Montserrat', sans-serif;
+            background-color: #fff;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
             overflow: hidden;
         }
 
-        /* 1. 테두리 흐르는 글자 (Sedgwick Ave Display 적용) */
-        .marquee {
-            position: fixed; width: 100%; color: #000;
-            font-family: 'Sedgwick Ave Display', cursive;
-            font-size: 10pt; padding: 15px 0; overflow: hidden; white-space: nowrap;
-        }
-        .marquee-top { top: 10px; }
-        .marquee-bottom { bottom: 10px; }
-        
-        .track {
-            display: inline-block; animation: marquee 20s linear infinite;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .track span { padding-right: 50px; text-transform: uppercase; letter-spacing: 2px; }
-
-        /* 2. 3:2 레이아웃 */
-        .main-layout {
-            display: flex; height: 100vh; align-items: center;
-            padding: 0 10vw; gap: 5vw;
-        }
-
-        /* 좌측: 텍스트 영역 (Rock Salt 적용) */
-        .text-section { flex: 2; }
+        /* 메인 타이틀: Dear Yebin */
         .hero-text {
             font-family: 'Rock Salt', cursive;
-            font-size: clamp(3rem, 8vw, 6rem); /* 폰트 특성상 너무 크면 깨져서 조절! */
-            line-height: 1.4;
+            font-size: clamp(3rem, 12vw, 8rem); /* 화면 크기에 맞게 조절 */
             color: #000;
             text-transform: uppercase;
-        }
-        .sub-text {
-            font-size: 1.1rem; letter-spacing: 8px; color: #888; margin-top: 30px;
-            font-weight: 300;
-        }
-
-        /* 우측: 사진 영역 */
-        .photo-section { flex: 1; display: flex; justify-content: center; }
-        .photo-box {
-            position: relative; width: 100%; max-width: 320px; aspect-ratio: 3/4;
-            background: #f0f0f0; transform: rotate(-3deg); /* 반대 방향으로 살짝 */
-            box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
-            border: 10px solid #fff;
-        }
-        .photo-box img { width: 100%; height: 100%; object-fit: cover; }
-        
-        /* 박스테이프 (더 투명하게) */
-        .tape {
-            position: absolute; width: 110px; height: 35px;
-            background: rgba(0, 0, 0, 0.03); backdrop-filter: blur(2px);
-            top: -15px; left: 50%; transform: translateX(-50%) rotate(5deg);
-            border-left: 1px dashed rgba(0,0,0,0.1);
-            border-right: 1px dashed rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 60px;
+            cursor: default;
         }
 
-        /* 3. 중앙 하단 버튼 */
+        /* 엔터 버튼: 텍스트로만 구성 */
         .enter-btn {
-            position: absolute; bottom: 10vh; left: 50%; transform: translateX(-50%);
-            background: #000; color: #fff; border: none; padding: 15px 50px;
-            font-weight: 700; cursor: pointer; transition: 0.3s; letter-spacing: 3px;
-            font-size: 0.9rem;
+            font-family: 'Rock Salt', cursive;
+            background: none;
+            border: none;
+            color: #000;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
         }
-        .enter-btn:hover { background: #fff; color: #000; border: 1px solid #000; }
+
+        .enter-btn:hover {
+            transform: scale(1.1);
+            color: #888; /* 호버 시 살짝 흐려지는 효과 */
+        }
     </style>
 </head>
 <body>
-    <div class="marquee marquee-top">
-        <div class="track">
-            <span>Happy Yebin Day 0104 / Eyes on Yebin / Archive 2026 / </span>
-            <span>Happy Yebin Day 0104 / Eyes on Yebin / Archive 2026 / </span>
-        </div>
+
+    <div class="hero-text">
+        DEAR<br>YEBIN
     </div>
 
-    <div class="main-layout">
-        <div class="text-section">
-            <div class="hero-text">FOR<br>YEBIN</div>
-            <p class="sub-text">B-DAY ARCHIVE</p>
-        </div>
-        <div class="photo-section">
-            <div class="photo-box">
-                <div class="tape"></div>
-                <img src="yebin_photo.jpg" alt="yebin">
-            </div>
-        </div>
-    </div>
-
-    <button class="enter-btn" onclick="celebrate()">ENTER PROJECT</button>
-
-    <div class="marquee marquee-bottom">
-        <div class="track">
-            <span>0104 Birthday / Only For Yebin / Project Yebin / </span>
-            <span>0104 Birthday / Only For Yebin / Project Yebin / </span>
-        </div>
-    </div>
+    <button class="enter-btn" onclick="celebrate()">
+        ENTER PROJECT
+    </button>
 
     <script>
         function celebrate() {
-            confetti({ particleCount: 150, spread: 100, origin: { y: 0.7 }, colors: ['#000', '#666'] });
-            setTimeout(() => { window.location.href = 'celebrate.html'; }, 1500);
+            // 미니멀한 무채색 폭죽
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#000', '#888', '#ccc']
+            });
+
+            setTimeout(() => {
+                window.location.href = 'celebrate.html';
+            }, 1200);
         }
     </script>
 </body>
