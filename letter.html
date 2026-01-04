@@ -3,158 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="예숭이에게 보내는 생일 축하 페이지 — HAPPY BIRTHDAY YESUNG!">
-    <title>HAPPY BIRTHDAY YESUNG!</title>
-
-    <!-- Pretendard 웹폰트 (CDN) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
-
-    <!--
-      다른 폰트로 바꾸려면 (예: Noto Sans KR) 위 링크를 주석 처리하고 아래 예시를 사용하세요:
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-    -->
-
+    <title>YEBIN : MESSAGE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Sedgwick+Ave+Display&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <style>
-        :root{
-            /* 타입 시스템 — 여기 값만 변경하면 전체 타이포그래피가 조정됩니다. */
-            --fs-base: clamp(0.95rem, 1.2vw + 0.55rem, 1.125rem); /* 본문 기준 */
-            --fs-small: 0.9rem;
-            --fs-large: clamp(1.4rem, 2.6vw, 2rem); /* h2 등 */
-            --line-body: 1.7;
-            --line-tight: 1.35;
-            --letter-body: 0.0em;
-            --letter-heading: -0.02em;
-            --color-text: #5d574a;
-            --color-accent: #f2aeb7;
-            --color-muted: #aaa;
-            --card-border: #FBDEE2;
+        body {
+            margin: 0; background-color: #000; color: #fff;
+            font-family: 'Montserrat', sans-serif; padding: 10vw;
         }
-
-        html,body { height:100%; }
-
-        body{
-            margin:0;
-            padding:40px 20px;
-            background-color: #FCF0D6;
-            color: var(--color-text);
-            font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            font-size: var(--fs-base);
-            line-height: var(--line-body);
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
+        .header {
+            font-family: 'Sedgwick Ave Display', cursive; font-size: 1rem;
+            letter-spacing: 5px; color: #666; margin-bottom: 50px;
         }
-
-        .card{
-            background:#fff;
-            width:100%;
-            max-width:600px;
-            padding:40px;
-            border-radius:40px;
-            box-shadow:0 20px 40px rgba(0,0,0,0.05);
-            text-align:center;
-            border:4px solid var(--card-border);
+        .content {
+            font-size: 1.5rem; line-height: 1.8; word-break: keep-all;
+            font-weight: 300; border-left: 1px solid #333; padding-left: 30px;
         }
-
-        /* 캐릭터 박스: 이미지 넣을 때는 내부 <img>에 맞춰 사용하세요. */
-        .character-box{
-            width:150px;
-            height:150px;
-            background-color:#D9F1F3;
-            margin:0 auto 30px;
-            border-radius:30px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:2.6rem; /* 이미지 대신 emoji 사용 시 크기 */
-            color:#7abccb;
-            overflow:hidden;
+        .signature {
+            font-family: 'Rock Salt', cursive; margin-top: 80px;
+            font-size: 1.2rem; color: #fff;
         }
-        .character-box img{
-            width:100%;
-            height:100%;
-            object-fit:cover;
-            display:block;
-            border-radius:inherit;
+        .back-btn {
+            display: inline-block; margin-top: 50px; color: #fff;
+            text-decoration: none; font-family: 'Sedgwick Ave Display', cursive;
+            border: 1px solid #fff; padding: 10px 25px; transition: 0.3s;
         }
-
-        h2{
-            margin:0 0 20px 0;
-            font-size:var(--fs-large);
-            color:var(--color-accent);
-            font-weight:700; /* Pretendard variable 사용 시 가중치 조정 가능 */
-            letter-spacing: var(--letter-heading);
-            line-height: var(--line-tight);
-        }
-
-        .message-box{
-            background-color:#fdfcf0;
-            padding:25px;
-            border-radius:20px;
-            text-align:left;
-            margin-bottom:30px;
-            color:var(--color-text);
-            font-size:var(--fs-base);
-            line-height:var(--line-body);
-            letter-spacing:var(--letter-body);
-        }
-        .message-box p{ margin:0 0 0.9rem 0; }
-
-        .celebrate{
-            font-size: clamp(1.05rem, 1.6vw + 0.6rem, 1.35rem);
-            font-weight:600;
-            color:var(--color-accent);
-            margin:0 0 16px 0;
-            letter-spacing:0.02em; /* 강조문자 약간 넓힘 */
-        }
-
-        .back-link{
-            text-decoration:none;
-            color:var(--color-muted);
-            font-size:0.95rem;
-            border-radius:8px;
-            padding:6px 10px;
-            transition:color 120ms ease, background-color 120ms ease;
-        }
-        .back-link:hover{ color:#6c6c6c; }
-        .back-link:focus-visible{
-            outline:3px solid rgba(243,172,187,0.45);
-            outline-offset:4px;
-            background:rgba(255,255,255,0.6);
-        }
-
-        /* 레이아웃/타입 반응형 세부 조정 */
-        @media (max-width:420px){
-            .card{ padding:24px; border-radius:24px; }
-            .character-box{ width:120px; height:120px; font-size:2.2rem; border-radius:20px; }
-            h2{ font-size: clamp(1.2rem, 4.2vw, 1.6rem); }
-        }
+        .back-btn:hover { background: #fff; color: #000; }
     </style>
 </head>
 <body>
-
-    <div class="card">
-        <div class="character-box" role="img" aria-label="예숭이 캐릭터">
-            🐵
-            <!-- 이미지로 바꿀 때 예시:
-            <img src="images/yesung-character.jpg" alt="예숭이 캐릭터">
-            -->
-        </div>
-
-        <h2>예숭아 생일 축하해! ✨</h2>
-
-        <div class="message-box" aria-labelledby="message-heading">
-            <p id="message-heading" style="font-weight:600; margin-bottom:0.4rem;">안녕 예숭아?</p>
-            <p>네 생일을 맞아 특별히 이 웹페이지를 준비했어. 코딩을 배우는 유진이가 정성 들여 만든 단 하나뿐인 선물이니 기뻐해줘!</p>
-            <p>올 한 해도 즐거운 일만 가득하고, 건강과 행복이 함께하길 바랄게. 🎂</p>
-        </div>
-
-        <p class="celebrate">🎂 23살 먹은 거 축하해 예숭아! 🍌</p>
-
-        <a href="celebrate.html" class="back-link" aria-label="메인 페이지로 이동">퇴장하기...</a>
+    <div class="header">TOP SECRET / FOR YEBIN ONLY</div>
+    <div class="content">
+        예빈아, 네 23살 생일을 진심으로 축하해.<br>
+        내가 공들여 만든 이 사이트가 마음에 드니? ㅎ<br>
+        너의 모든 순간이 빛나길 바라.<br>
+        눈물 닦고 다음 버튼 눌러라...
     </div>
-
+    <div class="signature">From. Eugene</div>
+    <a href="celebrate.html" class="back-btn">RETURN TO LIST</a>
 </body>
 </html>
