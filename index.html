@@ -12,7 +12,7 @@
     <style>
         body, html {
             margin: 0; padding: 0; height: 100%; width: 100%;
-            font-family: 'Pretendard', sans-serif; /* 폰트 적용! */
+            font-family: 'Pretendard', sans-serif;
             background-color: #D9F1F3; 
             display: flex; justify-content: center; align-items: center;
             overflow: hidden;
@@ -68,7 +68,7 @@
 
     <script>
         function celebrate() {
-            // 폭죽 효과 (유진이 픽한 파스텔톤 컬러!)
+            // 폭죽 효과 (유진 픽 파스텔톤!)
             confetti({
                 particleCount: 150,
                 spread: 70,
@@ -84,9 +84,9 @@
                 if (Date.now() < end) { requestAnimationFrame(frame); }
             }());
 
-            // 1.5초 뒤 birthday.html로 이동!
+            // 1.5초 뒤 celebrate.html로 이동!
             setTimeout(() => {
-                window.location.href = 'birthday.html';
+                window.location.href = 'celebrate.html';
             }, 1500);
         }
     </script>
