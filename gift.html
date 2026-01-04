@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YEBIN : FORTUNE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Montserrat:wght@300;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            margin: 0; background-color: #000; color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            height: 100vh; overflow: hidden; text-align: center;
+        }
+
+        .header {
+            font-family: 'Rock Salt', cursive; font-size: 1.5rem;
+            color: #444; margin-bottom: 50px; letter-spacing: 2px;
+        }
+
+        #cookie-container { cursor: pointer; transition: transform 0.2s; }
+        #cookie-container:active { transform: scale(0.9); }
+
+        .cookie-emoji { font-size: 8rem; margin-bottom: 20px; display: block; }
+
+        #result-text {
+            font-family: 'Rock Salt', cursive; font-size: 2rem;
+            min-height: 100px; padding: 0 20px; word-break: keep-all;
+            color: #fff; margin-top: 30px; opacity: 0; transition: 0.5s;
+        }
+
+        .instruction { font-size: 0.8rem; color: #666; margin-top: 10px; letter-spacing: 3px; }
+
+        .back-btn {
+            position: absolute; bottom: 50px; color: #fff;
+            text-decoration: none; font-family: 'Rock Salt', cursive;
+            border: 1px solid #fff; padding: 10px 25px; font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">TAP TO OPEN YOUR LUCK</div>
+
+    <div id="cookie-container" onclick="openCookie()">
+        <span class="cookie-emoji">🥠</span>
+        <div class="instruction">CLICK THE COOKIE</div>
+    </div>
+
+    <div id="result-text"></div>
+
+    <a href="celebrate.html" class="back-btn">GO BACK</a>
+
+    <script>
+        const fortunes = [
+            "LUCKY: FREE MEAL PASS",
+            "YEBIN IS THE QUEEN TODAY",
+            "COUPON: EUGENE'S SLAVE FOR 1DAY",
+            "BEST LUCK: SHASHA'S BLESSING",
+            "LUCKY: CAFE TOUR WITH EUGENE",
+            "SURPRISE: NO HOMEWORK TODAY"
+        ];
+
+        function openCookie() {
+            const resultDiv = document.getElementById('result-text');
+            const cookieEmoji = document.querySelector('.cookie-emoji');
+            
+            // 쿠키 깨지는 효과
+            cookieEmoji.innerText = '✨';
+            
+            // 랜덤 결과 뽑기
+            const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+            resultDiv.innerText = randomFortune;
+            resultDiv.style.opacity = '1';
+
+            // 폭죽 팡!
+            confetti({
+                particleCount: 100, spread: 70, origin: { y: 0.6 },
+                colors: ['#ffffff', '#ff0000', '#ffd700']
+            });
+
+            // 3초 뒤에 다시 쿠키로 복구 (또 뽑기 가능)
+            setTimeout(() => {
+                cookieEmoji.innerText = '🥠';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
