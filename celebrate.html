@@ -3,87 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Celebrate Yesung? 🐵</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <title>YEBIN : SELECT SERVICE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
     <style>
         body {
-            margin: 0; padding: 20px;
-            background-color: #D9F1F3; /* 하늘색 배경 */
+            margin: 0; background-color: #fff; color: #000;
             font-family: 'Pretendard', sans-serif;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            min-height: 100vh; color: #446a73;
+            display: flex; flex-direction: column; padding: 10vw;
         }
 
-        h1 { font-size: 1.5rem; margin-bottom: 40px; background: white; padding: 10px 20px; border-radius: 50px; border: 2px solid #FBDEE2; }
-
-        /* 아이콘 그리드 레이아웃 */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2열로 배치 */
-            gap: 20px;
-            max-width: 400px;
+        .header {
+            font-family: 'Montserrat', sans-serif; font-style: italic;
+            font-size: 4rem; letter-spacing: -3px; line-height: 0.9;
+            margin-bottom: 80px; text-transform: uppercase;
         }
+
+        .menu-list { display: flex; flex-direction: column; width: 100%; border-top: 1px solid #000; }
 
         .menu-item {
-            background: white;
-            padding: 20px;
-            border-radius: 30px;
-            text-align: center;
-            text-decoration: none;
-            color: inherit;
-            border: 3px solid transparent;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px 0; border-bottom: 1px solid #000;
+            text-decoration: none; color: #000; transition: all 0.3s;
         }
 
-        /* 마우스 올렸을 때 효과 (분해해온 포인트!) */
-        .menu-item:hover {
-            transform: translateY(-10px);
-            border-color: #FBDEE2;
-            background-color: #FCF0D6;
-        }
+        .menu-item:hover { background-color: #000; color: #fff; padding-left: 20px; }
 
-        .icon { font-size: 3rem; margin-bottom: 10px; display: block; }
-        .label { font-weight: bold; font-size: 0.9rem; }
+        .menu-num { font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; }
+        .menu-title { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
+        .arrow { font-size: 2rem; }
 
-        /* 중앙 케이크 아이콘 (메인) */
-        .main-cake {
-            grid-column: span 2; /* 두 칸 차지 */
-            background-color: #FBDEE2;
-            color: white;
-        }
     </style>
 </head>
 <body>
 
-    <h1>🐵 예숭이를 축하하는 5가지 방법</h1>
+    <div class="header">SELECT<br>YOUR OPTION</div>
 
-    <div class="menu-grid">
-        <div class="menu-item main-cake">
-            <span class="icon">🎂</span>
-            <span class="label">HAPPY BIRTHDAY!</span>
-        </div>
-
-        <a href="#" class="menu-item">
-            <span class="icon">🎁</span>
-            <span class="label">선물 주기</span>
-        </a>
-        <a href="birthday.html" class="menu-item">
-            <span class="icon">💌</span>
-            <span class="label">편지 읽기</span>
+    <div class="menu-list">
+        <a href="letter.html" class="menu-item">
+            <div>
+                <div class="menu-num">01</div>
+                <div class="menu-title">Read Letter</div>
+            </div>
+            <div class="arrow">→</div>
         </a>
         <a href="#" class="menu-item">
-            <span class="icon">📸</span>
-            <span class="label">추억 보기</span>
+            <div>
+                <div class="menu-num">02</div>
+                <div class="menu-title">Archive Photo</div>
+            </div>
+            <div class="arrow">→</div>
         </a>
         <a href="#" class="menu-item">
-            <span class="icon">🎵</span>
-            <span class="label">노래 듣기</span>
+            <div>
+                <div class="menu-num">03</div>
+                <div class="menu-title">Special Gift</div>
+            </div>
+            <div class="arrow">→</div>
         </a>
     </div>
-
-    <br><br>
-    <a href="index.html" style="color: #aaa; text-decoration: none; font-size: 0.8rem;">← 처음으로</a>
 
 </body>
 </html>
