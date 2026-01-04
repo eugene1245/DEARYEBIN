@@ -4,27 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONFIDENTIAL: PROJECT YESUNG 🐵</title>
+    
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
     <style>
         body, html {
             margin: 0; padding: 0; height: 100%; width: 100%;
-            font-family: 'Pretendard', sans-serif;
-            background-color: #D9F1F3; /* 하늘색 배경 */
+            font-family: 'Pretendard', sans-serif; /* 폰트 적용! */
+            background-color: #D9F1F3; 
             display: flex; justify-content: center; align-items: center;
             overflow: hidden;
         }
 
-        .main-container {
-            text-align: center;
-            z-index: 10;
-        }
-
-        .title-area {
-            margin-bottom: 50px;
-        }
+        .main-container { text-align: center; z-index: 10; }
+        .title-area { margin-bottom: 50px; }
 
         h1 {
-            /* [예숭이 생일 축하해!] */
             font-size: clamp(2.5rem, 8vw, 5rem);
             color: #446a73;
             letter-spacing: -1px;
@@ -32,13 +29,13 @@
         }
 
         p {
-            /* [여기에 부제목/장난스러운 경고 삽입] */
             font-size: 1.2rem;
             color: #7abccb;
+            font-weight: 500;
         }
 
         .enter-btn {
-            background-color: #FBDEE2; /* 핑크 버튼 */
+            background-color: #FBDEE2;
             color: #7a5a5e;
             border: none;
             padding: 20px 60px;
@@ -52,7 +49,7 @@
 
         .enter-btn:hover {
             transform: scale(1.1);
-            background-color: #FCF0D6; /* 노랑으로 변함 */
+            background-color: #FCF0D6;
         }
     </style>
 </head>
@@ -60,18 +57,18 @@
 
     <div class="main-container">
         <div class="title-area">
-            <h1>[예빈이 생일 축하해용 >3<]</h1>
-            <p>[눈물 흘릴 준비하고 있어라...]</p>
+            <h1>예빈이 생일 축하해용 >3<</h1>
+            <p>눈물 흘릴 준비하고 있어라...</p>
         </div>
         
         <button class="enter-btn" onclick="celebrate()">
-            [예숭's 파티장 입장하기]
+            예숭's 파티장 입장하기
         </button>
     </div>
 
     <script>
         function celebrate() {
-            // 1. 폭죽 팡팡!
+            // 폭죽 효과 (유진이 픽한 파스텔톤 컬러!)
             confetti({
                 particleCount: 150,
                 spread: 70,
@@ -79,29 +76,15 @@
                 colors: ['#FCF0D6', '#D9F1F3', '#FBDEE2']
             });
 
-            // 2. 하트 팡팡!
+            // 하트 팡팡
             var end = Date.now() + (1 * 1000);
             (function frame() {
-                confetti({
-                    particleCount: 2,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0 },
-                    colors: ['#FBDEE2']
-                });
-                confetti({
-                    particleCount: 2,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 },
-                    colors: ['#FBDEE2']
-                });
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
+                confetti({ particleCount: 2, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#FBDEE2'] });
+                confetti({ particleCount: 2, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#FBDEE2'] });
+                if (Date.now() < end) { requestAnimationFrame(frame); }
             }());
 
-            // 3. 1.5초 뒤 다음 페이지로 이동
+            // 1.5초 뒤 birthday.html로 이동!
             setTimeout(() => {
                 window.location.href = 'birthday.html';
             }, 1500);
