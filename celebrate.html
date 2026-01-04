@@ -3,64 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YEBIN : SELECT SERVICE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
+    <title>YEBIN : OPTIONS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Sedgwick+Ave+Display&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0; background-color: #fff; color: #000;
-            font-family: 'Pretendard', sans-serif;
-            display: flex; flex-direction: column; padding: 10vw;
+            font-family: 'Montserrat', sans-serif;
+            padding: 10vw; display: flex; flex-direction: column;
         }
-
         .header {
-            font-family: 'Montserrat', sans-serif; font-style: italic;
-            font-size: 4rem; letter-spacing: -3px; line-height: 0.9;
-            margin-bottom: 80px; text-transform: uppercase;
+            font-family: 'Rock Salt', cursive; font-size: 3rem;
+            line-height: 1.2; margin-bottom: 60px; text-transform: uppercase;
         }
-
-        .menu-list { display: flex; flex-direction: column; width: 100%; border-top: 1px solid #000; }
-
+        .menu-list { border-top: 2px solid #000; }
         .menu-item {
             display: flex; justify-content: space-between; align-items: center;
             padding: 30px 0; border-bottom: 1px solid #000;
-            text-decoration: none; color: #000; transition: all 0.3s;
+            text-decoration: none; color: #000; transition: 0.3s;
         }
-
-        .menu-item:hover { background-color: #000; color: #fff; padding-left: 20px; }
-
-        .menu-num { font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; }
-        .menu-title { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
-        .arrow { font-size: 2rem; }
-
+        .menu-item:hover { background: #000; color: #fff; padding-left: 20px; }
+        .menu-num { font-family: 'Sedgwick Ave Display', cursive; font-size: 1.2rem; }
+        .menu-title { font-family: 'Rock Salt', cursive; font-size: 1.5rem; margin-left: 20px; }
+        .arrow { font-family: 'Sedgwick Ave Display', cursive; font-size: 2rem; }
     </style>
 </head>
 <body>
-
-    <div class="header">SELECT<br>YOUR OPTION</div>
-
+    <div class="header">Pick your<br>Project</div>
     <div class="menu-list">
         <a href="letter.html" class="menu-item">
-            <div>
+            <div style="display:flex; align-items:center;">
                 <div class="menu-num">01</div>
-                <div class="menu-title">Read Letter</div>
+                <div class="menu-title">PRIVATE MESSAGE</div>
             </div>
-            <div class="arrow">→</div>
+            <div class="arrow">GO</div>
         </a>
-        <a href="#" class="menu-item">
-            <div>
+        <a href="archive.html" class="menu-item">
+            <div style="display:flex; align-items:center;">
                 <div class="menu-num">02</div>
-                <div class="menu-title">Archive Photo</div>
+                <div class="menu-title">PHOTO ARCHIVE</div>
             </div>
-            <div class="arrow">→</div>
+            <div class="arrow">VIEW</div>
         </a>
-        <a href="#" class="menu-item">
-            <div>
+        <a href="gift.html" class="menu-item">
+            <div style="display:flex; align-items:center;">
                 <div class="menu-num">03</div>
-                <div class="menu-title">Special Gift</div>
+                <div class="menu-title">SURPRISE GIFT</div>
             </div>
-            <div class="arrow">→</div>
+            <div class="arrow">?</div>
         </a>
     </div>
-
 </body>
 </html>
