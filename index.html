@@ -3,53 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONFIDENTIAL: PROJECT YESUNG 🐵</title>
+    <title>PROJECT YESUNG: 0104</title>
     
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-    
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <style>
         body, html {
             margin: 0; padding: 0; height: 100%; width: 100%;
             font-family: 'Pretendard', sans-serif;
-            background-color: #D9F1F3; 
+            background-color: #ffffff; /* 순백색 배경 */
             display: flex; justify-content: center; align-items: center;
             overflow: hidden;
         }
 
-        .main-container { text-align: center; z-index: 10; }
-        .title-area { margin-bottom: 50px; }
+        .main-container { text-align: center; }
+
+        .title-area { margin-bottom: 60px; }
 
         h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            color: #446a73;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
+            font-size: clamp(3rem, 10vw, 6rem); /* 더 크고 웅장하게 */
+            color: #000000; /* 완전 블랙 */
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin: 0;
+            line-height: 1.1;
         }
 
         p {
-            font-size: 1.2rem;
-            color: #7abccb;
-            font-weight: 500;
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase; /* 영문일 경우 대문자로 시크하게 */
         }
 
         .enter-btn {
-            background-color: #FBDEE2;
-            color: #7a5a5e;
+            background-color: #000000; /* 블랙 버튼 */
+            color: #ffffff;
             border: none;
-            padding: 20px 60px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 100px;
+            padding: 18px 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 0; /* 각진 버튼으로 더 시크하게 */
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(251, 222, 226, 0.5);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
         }
 
         .enter-btn:hover {
-            transform: scale(1.1);
-            background-color: #FCF0D6;
+            background-color: #FBDEE2; /* 호버할 때만 유진의 포인트 컬러 핑크! */
+            color: #000;
+            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -57,37 +62,28 @@
 
     <div class="main-container">
         <div class="title-area">
-            <h1>예빈이 생일 축하해용 >3<</h1>
-            <p>눈물 흘릴 준비하고 있어라...</p>
+            <h1>HAPPY<br>YESUNG DAY</h1>
+            <p>EYES ON ME, YE-BIN</p>
         </div>
         
         <button class="enter-btn" onclick="celebrate()">
-            예숭's 파티장 입장하기
+            ENTER THE PARTY
         </button>
     </div>
 
     <script>
         function celebrate() {
-            // 폭죽 효과 (유진 픽 파스텔톤!)
+            // 화이트 배경이라 폭죽 색깔이 더 선명하게 보일 거야!
             confetti({
                 particleCount: 150,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#FCF0D6', '#D9F1F3', '#FBDEE2']
+                spread: 100,
+                origin: { y: 0.5 },
+                colors: ['#FCF0D6', '#D9F1F3', '#FBDEE2', '#000000']
             });
 
-            // 하트 팡팡
-            var end = Date.now() + (1 * 1000);
-            (function frame() {
-                confetti({ particleCount: 2, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#FBDEE2'] });
-                confetti({ particleCount: 2, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#FBDEE2'] });
-                if (Date.now() < end) { requestAnimationFrame(frame); }
-            }());
-
-            // 1.5초 뒤 celebrate.html로 이동!
             setTimeout(() => {
                 window.location.href = 'celebrate.html';
-            }, 1500);
+            }, 1800);
         }
     </script>
 </body>
